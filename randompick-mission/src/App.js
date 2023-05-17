@@ -35,7 +35,11 @@ export default function App() {
     //DidMount 되었을때만 cards 호출
   }, [])
 
-  const result = pickedCards.map((pickedCard) => <BusinessCard info={pickedCard}/>)
+  const result = pickedCards.map((pickedCard) => 
+    <BusinessCard info={pickedCard} key={pickedCard.phoneNumber} />
+  );
+
+  console.log(result)
 
   return (
     <div>

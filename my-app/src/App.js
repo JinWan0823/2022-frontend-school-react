@@ -1,8 +1,8 @@
 import React from "react";
-import UnControlledForm from "./components/UnControlledForm";
+import CatParent from "./components/CatParent";
 
 export default function App() {
   return (
-    <UnControlledForm />
+    <CatParent />
   );
 }

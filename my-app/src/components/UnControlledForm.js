@@ -10,8 +10,7 @@ export default function UnControlledForm() {
   const handelSubmit = (e) => {
     e.preventDefault();
     alert(inputRef.current.value);
-    console.log(inputRef)
-    console.log(inputRef.current)
+    inputRef.current.focus();
   }
 
   return (

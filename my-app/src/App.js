@@ -1,8 +1,8 @@
 import React from "react";
-import Banner from "./components/Banner";
+import Toggle from "./components/Toggle";
 
 export default function App() {
   return (
-    <Banner />
+    <Toggle />
   );
 }

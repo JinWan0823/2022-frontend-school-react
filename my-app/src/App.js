@@ -1,8 +1,8 @@
 import React from "react";
-import Toggle from "./components/Toggle";
+import SimpleForm from "./components/SimpleForm";
 
 export default function App() {
   return (
-    <Toggle />
+    <SimpleForm />
   );
 }

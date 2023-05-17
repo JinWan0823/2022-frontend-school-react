@@ -1,8 +1,8 @@
 import React from "react";
-import SimpleForm from "./components/SimpleForm";
+import UnControlledForm from "./components/UnControlledForm";
 
 export default function App() {
   return (
-    <SimpleForm />
+    <UnControlledForm />
   );
 }

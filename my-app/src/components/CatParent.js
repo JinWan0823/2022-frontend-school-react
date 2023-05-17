@@ -3,8 +3,7 @@ import Cat from "./Cat";
 
 // Cat 안에 있는 image 사이즈를 알아내기
 export default function CatParent() {
-  // const catRef = useRef();
-
+  const ageRef = useRef(1);
   const [height, setHeight] = useState(0);
 
   const catCallbackRef = (node) => {
@@ -13,11 +12,7 @@ export default function CatParent() {
     }
   }
 
-  console.log("부모 컴포넌트 CatParent");
-  // console.log(catRef);
-
-  const ageRef = useRef(1);  
-
+ 
   return (
     <div>
       <h4> 고양이가 세상을 구한다 ️</h4>

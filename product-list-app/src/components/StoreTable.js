@@ -30,7 +30,7 @@ export default function StoreTable(props) {
   return (
     <table>
       <thead>
-        <tr>
+        <tr style={{fontWeight : "bold"}}>
           <td>Name</td>
           <td>Price</td>
         </tr>
@@ -41,5 +41,5 @@ export default function StoreTable(props) {
         ))}
       </tbody>
     </table>
-  );
+  );  
 }

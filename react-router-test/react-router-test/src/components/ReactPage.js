@@ -9,12 +9,17 @@ export default function ReactPage() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch('https://jsonplaceholder.typicode.com/posts')
-      const result = await res.json(); // 상태값
-      setDocs(result)
+      const result = await axios('https://jsonplaceholder.typicode.com/posts')
+      // const result = await res.json(); // 상태값
+      console.log(result);
+      console.log(result.data);
+
+      return result.data;
     }
 
-    fetchData();
+    fetchData().then(res => {
+      setDocs(res);
+    });
   },[])
 
   return (

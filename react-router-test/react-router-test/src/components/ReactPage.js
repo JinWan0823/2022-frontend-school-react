@@ -1,32 +1,37 @@
-import React , { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
+import useSWR from "swr";
 
 export default function ReactPage() {
-  // api call -> react page에 해당하는 목록을 불러옴 
+  // api call -> react page에 해당하는 목록을 불러옴
 
-  const [docs, setDocs] =  useState([])
+  const [number, setNumber] = useState(0);
 
-  useEffect(() => {
-    async function fetchData() {
-      const result = await axios('https://jsonplaceholder.typicode.com/posts')
-      // const result = await res.json(); // 상태값
-      console.log(result);
-      console.log(result.data);
+  async function fetcher() {
+    const result = await axios("https://jsonplaceholder.typicode.com/posts");
 
-      return result.data;
-    }
+    console.log(result.data);
+    return result.data;
+  }
 
-    fetchData().then(res => {
-      setDocs(res);
-    });
-  },[])
+  const { data: docs, error } = useSWR("posts", fetcher);
+
+  if (!docs) return <div>Loading...</div>;
+  if (error) return <div>No File</div>;
 
   return (
     <>
       <div>
-        {docs.map(doc =>(
-          <Link key={doc.id} to={`${doc.id}`} style={{margin:10, display:"block"}}>{doc.title}</Link>
+        <button onClick={() => setNumber(number + 1)}>{number}</button>
+        {docs.map((doc) => (
+          <Link
+            key={doc.id}
+            to={`${doc.id}`}
+            style={{ margin: 10, display: "block" }}
+          >
+            {doc.title}
+          </Link>
         ))}
       </div>
       {/* <Outlet /> */}

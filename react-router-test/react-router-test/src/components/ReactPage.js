@@ -6,8 +6,6 @@ import useSWR from "swr";
 export default function ReactPage() {
   // api call -> react page에 해당하는 목록을 불러옴
 
-  const [number, setNumber] = useState(0);
-
   async function fetcher() {
     const result = await axios("https://jsonplaceholder.typicode.com/posts");
 
@@ -23,7 +21,6 @@ export default function ReactPage() {
   return (
     <>
       <div>
-        <button onClick={() => setNumber(number + 1)}>{number}</button>
         {docs.map((doc) => (
           <Link
             key={doc.id}

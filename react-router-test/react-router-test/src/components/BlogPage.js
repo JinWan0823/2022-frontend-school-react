@@ -1,11 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { UserContext } from "../store/user";
 
 export default function BlogPage() {
+  const dispatch = useContext(UserContext);
+  console.log(dispatch);
   return (
     <div>
       <h1>BlogPage</h1>
-      <Link to="/">MainPage</Link> | <Link to="/tech">ReactPage</Link>
+      <button
+        onClick={() => dispatch({ type: "changeJob", text: "BE-developer" })}
+      >
+        Change Job
+      </button>
     </div>
   );
 }
